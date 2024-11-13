@@ -1,0 +1,53 @@
+Router 1
+
+
+en
+conf t
+int fa0/0
+ip address 10.0.0.1 255.0.0.0
+no shut
+exit
+int fa1/0
+ip address 40.0.0.1 255.0.0.0
+no shut
+exit
+ip route 20.0.0.0 255.0.0.0 40.0.0.2
+ip route 30.0.0.0 255.0.0.0 40.0.0.2
+exit
+
+Router 2
+
+
+en
+conf t
+int fa0/0
+ip address 20.0.0.1 255.0.0.0
+no shut
+exit
+int fa1/0
+ip address 40.0.0.2 255.0.0.0
+no shut
+int fa2/0
+ip address 50.0.0.2 255.0.0.0
+no shut
+exit
+ip route 10.0.0.0 255.0.0.0 40.0.0.1
+ip route 30.0.0.0 255.0.0.0 50.0.0.1
+exit
+
+Router 3
+
+
+en
+conf t
+int fa0/0
+ip address 30.0.0.1 255.0.0.0
+no shut
+exit
+int fa1/0
+ip address 50.0.0.1 255.0.0.0
+no shut
+exit
+ip route 10.0.0.0 255.0.0.0 50.0.0.2
+ip route 20.0.0.0 255.0.0.0 50.0.0.2
+exit
